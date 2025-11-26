@@ -105,6 +105,4 @@ The app expects these files in the `data/` folder:
 
 ---
 
-## 📧 Contact
 
-For questions about this dashboard, contact your instructor.

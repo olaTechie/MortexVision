@@ -159,7 +159,7 @@ with tab1:
             display_df.style.format({
                 col: "{:.2f}" for col in display_df.select_dtypes(include=[np.number]).columns
             }).background_gradient(subset=['crude_death_rate'] if 'crude_death_rate' in selected_cols else [], cmap='RdYlGn_r'),
-            use_container_width=True,
+            width='stretch',
             height=500
         )
         
@@ -223,7 +223,7 @@ with tab2:
             showlegend=True,
             legend=dict(orientation="h", yanchor="bottom", y=1.02)
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
 # ----------------------------------------------------------------------------
 # TAB 3: CORRELATIONS
@@ -273,7 +273,7 @@ with tab3:
             title='Correlation Matrix'
         )
         fig.update_layout(height=600)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
         
         # Top correlations with outcome
         if 'crude_death_rate' in selected_corr_vars:
@@ -348,7 +348,7 @@ with tab4:
     )
     fig.update_traces(marker=dict(opacity=0.7, line=dict(width=1, color='white')))
     
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
     
     # Correlation coefficient
     valid_data = df_filtered[[x_var, y_var]].dropna()

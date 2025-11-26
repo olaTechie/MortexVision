@@ -257,7 +257,7 @@ def main():
             df.head(20).style.format({
                 col: "{:.2f}" for col in df.select_dtypes(include=[np.number]).columns
             }),
-            use_container_width=True
+            width='stretch'
         )
     
     # Regional breakdown
@@ -274,7 +274,7 @@ def main():
                     'Region': region_counts.index,
                     'Countries': region_counts.values
                 }),
-                use_container_width=True,
+                width='stretch',
                 hide_index=True
             )
         
@@ -291,7 +291,7 @@ def main():
                 legend=dict(orientation="h", yanchor="bottom", y=-0.2),
                 margin=dict(t=20, b=20, l=20, r=20)
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
     
     # Footer
     st.markdown("---")

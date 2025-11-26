@@ -282,7 +282,7 @@ with col2:
             yaxis_title='Number of Countries',
             height=350
         )
-        st.plotly_chart(fig_hist, use_container_width=True)
+        st.plotly_chart(fig_hist, width='stretch')
         
         # Top impacted countries
         st.markdown("#### 🏆 Most Impacted Countries")
@@ -294,14 +294,14 @@ with col2:
             best = results.nsmallest(5, 'mortality_change')[['country', 'current_mortality', 'mortality_change', 'predicted_mortality']]
             best.columns = ['Country', 'Current', 'Change', 'Predicted']
             st.dataframe(best.style.format({'Current': '{:.2f}', 'Change': '{:.3f}', 'Predicted': '{:.2f}'}), 
-                        use_container_width=True, hide_index=True)
+                        width='stretch', hide_index=True)
         
         with col_b:
             st.markdown("**Smallest Improvements**")
             worst = results.nlargest(5, 'mortality_change')[['country', 'current_mortality', 'mortality_change', 'predicted_mortality']]
             worst.columns = ['Country', 'Current', 'Change', 'Predicted']
             st.dataframe(worst.style.format({'Current': '{:.2f}', 'Change': '{:.3f}', 'Predicted': '{:.2f}'}),
-                        use_container_width=True, hide_index=True)
+                        width='stretch', hide_index=True)
 
 # ============================================================================
 # POLICY COMPARISON
@@ -373,7 +373,7 @@ if 'comparison_df' in st.session_state:
         showlegend=False
     )
     
-    st.plotly_chart(fig_compare, use_container_width=True)
+    st.plotly_chart(fig_compare, width='stretch')
     
     # Detailed table
     st.markdown("### 📋 Detailed Comparison")
@@ -382,7 +382,7 @@ if 'comparison_df' in st.session_state:
             'Avg Mortality Change': '{:.4f}',
             'Max Improvement': '{:.4f}'
         }).background_gradient(subset=['Avg Mortality Change'], cmap='RdYlGn_r'),
-        use_container_width=True,
+        width='stretch',
         hide_index=True
     )
     

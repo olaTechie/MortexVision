@@ -203,7 +203,7 @@ fig.update_layout(
 fig.update_yaxes(title_text="Variance Explained (%)", row=1, col=1)
 fig.update_yaxes(title_text="Information Criterion", row=1, col=2)
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width='stretch')
 
 # ============================================================================
 # COEFFICIENT ANALYSIS
@@ -281,7 +281,7 @@ fig_forest.update_layout(
     margin=dict(l=200)
 )
 
-st.plotly_chart(fig_forest, use_container_width=True)
+st.plotly_chart(fig_forest, width='stretch')
 
 # Interpretation guide
 col1, col2 = st.columns(2)
@@ -325,7 +325,7 @@ st.dataframe(
         'CI_Lower': '{:.4f}',
         'CI_Upper': '{:.4f}'
     }).background_gradient(subset=['P_Value'], cmap='RdYlGn'),
-    use_container_width=True,
+    width='stretch',
     hide_index=True
 )
 
@@ -382,7 +382,7 @@ if len(var_across_models) > 0:
         height=400
     )
     
-    st.plotly_chart(fig_track, use_container_width=True)
+    st.plotly_chart(fig_track, width='stretch')
     
     # Calculate change
     if len(var_across_models) >= 2:

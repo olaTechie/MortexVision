@@ -172,7 +172,7 @@ fig.update_layout(
     )
 )
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width='stretch')
 
 # Statistics
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -214,7 +214,7 @@ if 'region' in df.columns:
     )
     fig_box.update_xaxes(tickangle=45)
     
-    st.plotly_chart(fig_box, use_container_width=True)
+    st.plotly_chart(fig_box, width='stretch')
     
     # Regional statistics table
     with st.expander("📊 Regional Statistics"):
@@ -224,7 +224,7 @@ if 'region' in df.columns:
         regional_stats.columns = ['N', 'Mean', 'Median', 'Std Dev', 'Min', 'Max']
         regional_stats = regional_stats.sort_values('Mean', ascending=False)
         
-        st.dataframe(regional_stats, use_container_width=True)
+        st.dataframe(regional_stats, width='stretch')
 
 # ============================================================================
 # BUBBLE MAP
@@ -294,7 +294,7 @@ if 'latitude' in df.columns and 'longitude' in df.columns:
         )
     )
     
-    st.plotly_chart(fig_bubble, use_container_width=True)
+    st.plotly_chart(fig_bubble, width='stretch')
 
 else:
     st.info("Latitude and longitude data not available for bubble map.")
@@ -311,10 +311,10 @@ with col1:
     st.markdown(f"### 🔺 Highest {selected_var.replace('_', ' ').title()}")
     top_10 = df.nlargest(10, selected_var)[['country', 'region', selected_var]].copy()
     top_10[selected_var] = top_10[selected_var].round(2)
-    st.dataframe(top_10, use_container_width=True, hide_index=True)
+    st.dataframe(top_10, width='stretch', hide_index=True)
 
 with col2:
     st.markdown(f"### 🔻 Lowest {selected_var.replace('_', ' ').title()}")
     bottom_10 = df.nsmallest(10, selected_var)[['country', 'region', selected_var]].copy()
     bottom_10[selected_var] = bottom_10[selected_var].round(2)
-    st.dataframe(bottom_10, use_container_width=True, hide_index=True)
+    st.dataframe(bottom_10, width='stretch', hide_index=True)

@@ -249,7 +249,7 @@ if len(radar_vars) >= 3:
         legend=dict(orientation="h", yanchor="bottom", y=-0.2)
     )
     
-    st.plotly_chart(fig_radar, use_container_width=True)
+    st.plotly_chart(fig_radar, width='stretch')
     
     st.info("💡 Values show percentile rankings (0-100). Higher = better health outcomes.")
 
@@ -296,7 +296,7 @@ with tab1:
     if distal:
         distal_table = create_indicator_table(distal, country_data, comparison_data, df)
         if len(distal_table) > 0:
-            st.dataframe(distal_table, use_container_width=True, hide_index=True)
+            st.dataframe(distal_table, width='stretch', hide_index=True)
         else:
             st.info("No distal indicators available for this country.")
     else:
@@ -306,7 +306,7 @@ with tab2:
     if intermediate:
         intermediate_table = create_indicator_table(intermediate, country_data, comparison_data, df)
         if len(intermediate_table) > 0:
-            st.dataframe(intermediate_table, use_container_width=True, hide_index=True)
+            st.dataframe(intermediate_table, width='stretch', hide_index=True)
         else:
             st.info("No intermediate indicators available for this country.")
 
@@ -314,7 +314,7 @@ with tab3:
     if proximate:
         proximate_table = create_indicator_table(proximate, country_data, comparison_data, df)
         if len(proximate_table) > 0:
-            st.dataframe(proximate_table, use_container_width=True, hide_index=True)
+            st.dataframe(proximate_table, width='stretch', hide_index=True)
         else:
             st.info("No proximate indicators available for this country.")
 
@@ -322,7 +322,7 @@ with tab4:
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     numeric_cols = [c for c in numeric_cols if c not in ['latitude', 'longitude']]
     all_table = create_indicator_table(numeric_cols, country_data, comparison_data, df)
-    st.dataframe(all_table, use_container_width=True, hide_index=True)
+    st.dataframe(all_table, width='stretch', hide_index=True)
 
 # ============================================================================
 # COUNTRY COMPARISON
@@ -369,7 +369,7 @@ if compare_countries:
             xaxis_title=compare_var.replace('_', ' ').title()
         )
         
-        st.plotly_chart(fig_compare, use_container_width=True)
+        st.plotly_chart(fig_compare, width='stretch')
 
 # ============================================================================
 # REGIONAL CONTEXT
@@ -413,4 +413,4 @@ if 'region' in df.columns:
             yaxis_title='Crude Death Rate (per 1,000)'
         )
         
-        st.plotly_chart(fig_regional, use_container_width=True)
+        st.plotly_chart(fig_regional, width='stretch')

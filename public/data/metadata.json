@@ -1,0 +1,23 @@
+{
+  "n_countries": 217,
+  "n_features": 31,
+  "regions": [
+    "LCN",
+    "MEA",
+    "SSF",
+    "ECS",
+    "EAS",
+    "SAS",
+    "NAC"
+  ],
+  "income_levels": [
+    "HIC",
+    "LIC",
+    "LMC",
+    "UMC",
+    "INX"
+  ],
+  "outcome_variable": "crude_death_rate",
+  "data_source": "World Bank Open Data",
+  "created_date": "2025-11-25 23:31:02"
+}

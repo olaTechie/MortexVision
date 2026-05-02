@@ -1,0 +1,30 @@
+{
+  "distal_vars": {
+    "NY.GNP.PCAP.CD": "gni_per_capita",
+    "SI.POV.NAHC": "poverty_headcount",
+    "SI.POV.GINI": "gini_index",
+    "SH.XPD.CHEX.PC.CD": "health_expenditure_pc",
+    "SE.ADT.LITR.FE.ZS": "female_literacy",
+    "SE.ADT.LITR.ZS": "adult_literacy",
+    "SE.XPD.TOTL.GD.ZS": "education_expenditure_gdp"
+  },
+  "intermediate_vars": {
+    "SH.H2O.SMDW.ZS": "safe_water",
+    "SH.STA.BASS.ZS": "basic_sanitation",
+    "EG.ELC.ACCS.ZS": "electricity_access",
+    "SH.MED.BEDS.ZS": "hospital_beds",
+    "SH.MED.PHYS.ZS": "physicians_density",
+    "SH.MED.NUMW.P3": "nurses_midwives_density",
+    "SP.URB.TOTL.IN.ZS": "urban_population"
+  },
+  "proximate_vars": {
+    "SH.DTH.COMM.ZS": "communicable_disease_deaths",
+    "SH.DTH.NCOM.ZS": "ncd_mortality_pct",
+    "SH.DYN.AIDS.ZS": "hiv_prevalence",
+    "SH.IMM.MEAS": "measles_immunisation",
+    "SH.IMM.IDPT": "dpt_immunisation",
+    "SN.ITK.DEFC.ZS": "undernourishment",
+    "SH.PRV.SMOK": "smoking_prevalence",
+    "SH.STA.OWGH.ZS": "overweight_prevalence"
+  }
+}

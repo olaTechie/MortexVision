@@ -1,108 +1,69 @@
-# 🌍 Global Health Analytics Dashboard
+# MortexVision
 
-A beautiful, interactive Streamlit dashboard for exploring ecological determinants of global mortality.
+MortexVision is a production-ready React/Vite migration of the original Streamlit Global Health Ecological Analysis dashboard. It preserves the original data exploration, maps, regression interpretation, country profiles, and policy simulation workflows while adding a polished multi-page interface, subtle motion, responsive navigation, and GitHub Pages deployment.
 
-## 🚀 Quick Start
+## Migration Summary
 
-### Step 1: Export Data from Jupyter Notebook
+- Streamlit home page -> `Overview`
+- `1_Data_Explorer.py` -> `Data Explorer`
+- `2_Global_Maps.py` -> `Global Maps`
+- `3_Regression_Analysis.py` -> `Analytics` and `Reports`
+- `4_Country_Profiles.py` -> `Country Profiles`
+- `5_Policy_Simulator.py` -> `Policy Simulator`
+- Pickle metadata/model files were converted to JSON so the app can run as a static GitHub Pages site.
 
-First, run your analysis in the Jupyter notebook, then export the data:
+## Tech Stack
 
-```python
-# After running build_progressive_models and other analyses
-exec(open('save_data_for_streamlit.py').read())
-```
+- React 18
+- Vite
+- React Router
+- Plotly
+- Framer Motion
+- Papa Parse
+- Lucide React
+- GitHub Actions and GitHub Pages
 
-This creates a `data/` folder with all necessary files.
-
-### Step 2: Install Dependencies
+## Development
 
 ```bash
-cd streamlit_app
-pip install -r requirements.txt
+npm install
+npm run dev
 ```
 
-### Step 3: Run the App
+## Build
 
 ```bash
-streamlit run app.py
+npm run build
+npm run preview
 ```
 
-The app will open in your browser at `http://localhost:8501`
+The production build uses the Vite base path `/MortexVision/`. The `postbuild` script copies `dist/index.html` to `dist/404.html` for GitHub Pages SPA fallback routing.
 
----
+## Deployment
 
-## 📱 Pages
+1. Create a GitHub repository named `MortexVision`.
+2. Push this project to the `main` branch.
+3. In GitHub, open `Settings -> Pages`.
+4. Set `Source` to `GitHub Actions`.
+5. Push to `main` or run the `Deploy to GitHub Pages` workflow manually.
 
-### 🏠 Home
-- Overview of the analysis
-- Key metrics and statistics
-- Regional breakdown
+Expected URL:
 
-### 📊 Data Explorer
-- Interactive data table with filtering
-- Distribution plots
-- Correlation analysis
-- Scatter plots with trendlines
+```text
+https://YOUR_GITHUB_USERNAME.github.io/MortexVision/
+```
 
-### 🗺️ Global Maps
-- Choropleth maps for any indicator
-- Multiple projections and color scales
-- Regional comparisons
-- Bubble maps
+## Repository Setup Commands
 
-### 📈 Regression Analysis
-- Model comparison (R², AIC, BIC)
-- Coefficient forest plots
-- Mediation analysis (coefficient changes)
-- Full model summary
+```bash
+git init
+git add .
+git commit -m "feat: migrate Streamlit dashboard to MortexVision React app"
+git branch -M main
+git remote add origin git@github.com:YOUR_GITHUB_USERNAME/MortexVision.git
+git push -u origin main
+```
 
-### 🎯 Country Profiles
-- Individual country deep-dives
-- Comparison with global/regional averages
-- Radar charts
-- Regional context
+## Notes
 
-### 🔮 Policy Simulator
-- What-if scenario analysis
-- Single intervention simulator
-- Compare multiple interventions
-- Impact distribution
-
----
-
-## 📁 Data Files Required
-
-The app expects these files in the `data/` folder:
-
-| File | Description |
-|------|-------------|
-| `global_health_data.csv` | Main dataset |
-| `variable_dictionaries.pkl` | Variable groupings |
-| `model_comparison.csv` | Model fit statistics |
-| `regression_coefficients.csv` | All coefficients |
-| `model_statistics.pkl` | Key model stats |
-| `full_model_summary.txt` | Detailed summary |
-| `metadata.pkl` | Dataset metadata |
-
----
-
-## 🎨 Features
-
-- **Beautiful Design**: Custom CSS with gradient backgrounds
-- **Fully Interactive**: Plotly charts with hover, zoom, pan
-- **Responsive**: Works on desktop and tablet
-- **Educational**: Tooltips and explanations throughout
-- **Fast**: Cached data loading for performance
-
----
-
-## ⚠️ Important Notes
-
-1. **Ecological Fallacy**: Results describe country-level relationships, not individual effects
-2. **Policy Simulator**: For educational exploration only, not actual policy decisions
-3. **Data Quality**: Reflects World Bank data completeness
-
----
-
-
+This dashboard uses country-level aggregate data. Results are ecological associations, not individual-level causal claims. The policy simulator uses a simplified linear approximation based on regression coefficients and is intended for educational scenario exploration.
